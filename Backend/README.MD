@@ -105,8 +105,17 @@ and try all the apis for your self and here is description of the APIs
     {
         "parcels": [
             {
-                "ParcelID": 5,
-                ...
+                "ParcelID": 1,
+                "OwnerID": 2,
+                "BikerID": 15,
+                "ParcelInfo": "Gift",
+                "ParcelFrom": "line 1",
+                "ParcelTo": "line2",
+                "ParcelStatus": "PICKED",
+                "CreatedAt": "2023-11-29 09:08:29",
+                "UpdatedAt": "2023-11-29 09:08:29",
+                "PickedAt": "2023-11-29 19:35:25",
+                "DeliveredAt": "2023-11-29 19:35:17"
             },
             ...
         ]
@@ -123,7 +132,16 @@ and try all the apis for your self and here is description of the APIs
         "parcels": [
             {
                 "ParcelID": 1,
-                ...
+                "OwnerID": 2,
+                "BikerID": 15,
+                "ParcelInfo": "Gift",
+                "ParcelFrom": "line 1",
+                "ParcelTo": "line2",
+                "ParcelStatus": "PICKED",
+                "CreatedAt": "2023-11-29 09:08:29",
+                "UpdatedAt": "2023-11-29 09:08:29",
+                "PickedAt": "2023-11-29 19:35:25",
+                "DeliveredAt": "2023-11-29 19:35:17"
             },
             ...
         ]
@@ -140,7 +158,16 @@ and try all the apis for your self and here is description of the APIs
         "parcels": [
             {
                 "ParcelID": 1,
-                ...
+                "OwnerID": 2,
+                "BikerID": 15,
+                "ParcelInfo": "Gift",
+                "ParcelFrom": "line 1",
+                "ParcelTo": "line2",
+                "ParcelStatus": "PICKED",
+                "CreatedAt": "2023-11-29 09:08:29",
+                "UpdatedAt": "2023-11-29 09:08:29",
+                "PickedAt": "2023-11-29 19:35:25",
+                "DeliveredAt": "2023-11-29 19:35:17"
             }
         ]
     }
