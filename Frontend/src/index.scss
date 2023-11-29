@@ -1,0 +1,97 @@
+$bg: #efefef;
+$container-bg: #dbe2ef;
+$text: #3f72af;
+$invert-text: #dbe2ef;
+$accent: #112d4e;
+
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+}
+body,
+html,
+#root {
+	margin: 0;
+	padding: 0;
+	background-color: $bg;
+	color: $text;
+	width: 100vw;
+}
+
+body {
+	display: flex;
+	place-items: flex-start;
+	padding-top: 10vh;
+	min-width: 320px;
+	min-height: 100vh;
+
+	.p-button {
+		&[class^="p-button-"] {
+			background: $accent;
+			color: $invert-text;
+			border: none;
+		}
+	}
+
+	.card {
+		background: $container-bg;
+	}
+
+	.nav {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		.p-toolbar {
+			background-color: transparent;
+		}
+
+		.nav-right {
+			img {
+				max-height: 5vh;
+				margin: 0 10px;
+			}
+		}
+
+		.nav-left {
+			.p-button {
+				margin: 1vh;
+			}
+		}
+		.p-toolbar {
+			padding: 0;
+		}
+	}
+
+	.p-toast {
+		.p-toast-message {
+			background: rgba(220, 220, 220, 0.7);
+		}
+	}
+
+	.page-body {
+		width: 95vw;
+		margin: 0 auto;
+	}
+
+	.landing-page {
+		text-align: center;
+
+		.feature {
+			.divider {
+				width: 50vw;
+				min-height: 1px;
+				margin: 0 auto;
+				margin-bottom: 5vh;
+				background-color: $accent;
+				display: block;
+			}
+		}
+	}
+	.p-highlight {
+		.p-steps-number {
+			background-color: $text;
+			color: $invert-text;
+		}
+	}
+}

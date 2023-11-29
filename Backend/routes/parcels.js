@@ -8,11 +8,15 @@ router.get("/", async function (req, res, next) {
 	res.status(200).send({ parcels });
 });
 router.post("/", async function (req, res, next) {
-	const { ownerID, parcelInfo } = req.body;
+	const { ownerID, parcelInfo, parcelFrom, parcelTo } = req.body;
 
-	const newParcel = await dbFunctions.parcels.addParcel(ownerID, parcelInfo);
+	const newParcel = await dbFunctions.parcels.addParcel(
+		ownerID,
+		parcelInfo,
+		parcelFrom,
+		parcelTo
+	);
 
-	console.log(newParcel);
 	if (!newParcel)
 		res.status(400).send({ message: "Invalid data", added: false });
 	else res.status(200).send({ added: true });

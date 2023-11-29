@@ -1,6 +1,8 @@
 const createError = require("http-errors");
 const express = require("express");
 const logger = require("morgan");
+var cors = require("cors");
+
 const { PORT } = require("./constants/index");
 const dbFunctions = require("./db/index");
 const indexRouter = require("./routes/index");
@@ -8,6 +10,8 @@ const usersRouter = require("./routes/users");
 const parcelsRouter = require("./routes/parcels");
 
 const app = express();
+
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());

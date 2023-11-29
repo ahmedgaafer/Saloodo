@@ -1,24 +1,50 @@
 const db = require("./init.db").db;
 
-module.exports.addParcel = function (ownerID, ParcelInfo) {
+module.exports.addParcel = function (
+	ownerID,
+	ParcelInfo,
+	parcelFrom,
+	parcelTo
+) {
 	return new Promise((resolve, reject) => {
 		db.serialize(async () => {
-			const stmt = db.prepare(`
-            INSERT INTO Parcel (OwnerID, ParcelInfo, ParcelStatus)
-            VALUES (?, ?, ?)
-            `);
+			const checkStmt = db.prepare(
+				"SELECT COUNT(*) as count FROM User WHERE UserID = ? AND Type = 'sender'"
+			);
 
-			stmt.run(ownerID, ParcelInfo, "ASSIGNING RIDER", function (err) {
+			checkStmt.get(ownerID, (err, row) => {
 				if (err) {
 					console.log("Error", err);
-					reject(undefined);
+					resolve(undefined);
 				} else {
-					console.log(this);
-					resolve(this.lastID);
+					console.log("ROW", row);
+					if (row.count === 0) return resolve(undefined);
+
+					const stmt = db.prepare(`
+					INSERT INTO Parcel (OwnerID, ParcelInfo, ParcelStatus, ParcelFrom, ParcelTo)
+					VALUES (?, ?, ?, ?, ?)
+					`);
+
+					stmt.run(
+						ownerID,
+						ParcelInfo,
+						"ASSIGNING RIDER",
+						parcelFrom,
+						parcelTo,
+
+						function (err) {
+							if (err) {
+								console.log("Error", err);
+								resolve(undefined);
+							} else {
+								resolve(this.lastID);
+							}
+						}
+					);
+
+					stmt.finalize();
 				}
 			});
-
-			stmt.finalize();
 		});
 	});
 };

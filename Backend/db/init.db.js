@@ -46,9 +46,13 @@ module.exports.validateTableAndInitData = async function () {
                 OwnerID INT,
 				BikerID INT,
 				ParcelInfo TEXT,
+				ParcelFrom TEXT,
+				ParcelTo TEXT,
 				ParcelStatus TEXT,
                 CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
                 UpdatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+                PickedAt DATETIME,
+                DeliveredAt DATETIME,
 				FOREIGN KEY (OwnerID) REFERENCES User(UserID),
 				FOREIGN KEY (BikerID) REFERENCES User(UserID)
             )`);
