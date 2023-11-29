@@ -38,6 +38,6 @@ For front and backend docs please follow these links:
 
 * [Frontend](Frontend/README.md)
 
-* [Backend](Backend/README.md)
+* [Backend](Backend/README.MD)
 
 
