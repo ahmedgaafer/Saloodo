@@ -102,4 +102,33 @@ body {
 		color: $text;
 		border: 1px solid;
 	}
+
+	.parcelTitle {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		.parcelInfo {
+			font-size: 1.2rem;
+			font-weight: 600;
+			color: $accent;
+			margin-bottom: 0.5vh;
+		}
+
+		.parcelStatus {
+			position: absolute;
+			right: 0;
+
+			margin: 0 5vw;
+			&.ASSIGNING {
+				color: $text;
+			}
+			&.PICKED {
+				color: darkgoldenrod;
+			}
+			&.DELIVERED {
+				color: green;
+			}
+		}
+	}
 }

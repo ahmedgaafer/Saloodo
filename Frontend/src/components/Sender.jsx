@@ -16,10 +16,10 @@ function StepsView({ parcel }) {
 
 	const items = [
 		{
-			label: "ASSIGNING RIDER",
+			label: "Assigning Rider",
 		},
 		{
-			label: "In Way",
+			label: "On Way",
 		},
 		{
 			label: "Delivered",
@@ -32,7 +32,17 @@ function StepsView({ parcel }) {
 function renderParcels(parcels) {
 	return parcels.map((parcel) => (
 		<AccordionTab
-			header={`Parcel ${parcel.ParcelInfo} Status: ${parcel.ParcelStatus}`}
+			header={() => (
+				<>
+					<div className="parcelTitle">
+						<div className="parcelInfo">{parcel.ParcelInfo}</div>
+						<div className={`parcelStatus ${parcel.ParcelStatus}`}>
+							{" "}
+							{parcel.ParcelStatus}{" "}
+						</div>
+					</div>
+				</>
+			)}
 			key={parcel.ParcelID}
 		>
 			<StepsView parcel={parcel} />
@@ -145,8 +155,9 @@ function Sender({ user, showToast }) {
 						value={parcelInfo}
 						onChange={(e) => setParcelInfo(e.target.value)}
 					/>
+
 					<label htmlFor="pickup" className="font-bold block mb-2">
-						Pick up
+						Pick up address
 					</label>
 					<InputText
 						id="pickup"
@@ -154,8 +165,9 @@ function Sender({ user, showToast }) {
 						value={pickup}
 						onChange={(e) => setPickup(e.target.value)}
 					/>
+
 					<label htmlFor="delivery" className="font-bold block mb-2">
-						Pick up
+						Delivery address
 					</label>
 					<InputText
 						id="delivery"

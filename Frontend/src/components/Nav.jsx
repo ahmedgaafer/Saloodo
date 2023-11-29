@@ -96,6 +96,7 @@ const NavLeft = ({ setUser, user, showToast }) => {
 						</label>
 						<InputText
 							id="password"
+							type="password"
 							className="w-full"
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}

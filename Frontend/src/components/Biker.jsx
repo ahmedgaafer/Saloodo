@@ -56,7 +56,21 @@ const ActiveParcels = (bikerParcels, setParcels, showToast) => {
 	return bikerParcels.map((parcel) => {
 		return (
 			<AccordionTab
-				header={`Parcel ${parcel.ParcelInfo} Status: ${parcel.ParcelStatus}`}
+				header={() => (
+					<>
+						<div className="parcelTitle">
+							<div className="parcelInfo">
+								{parcel.ParcelInfo}
+							</div>
+							<div
+								className={`parcelStatus ${parcel.ParcelStatus}`}
+							>
+								{" "}
+								{parcel.ParcelStatus}{" "}
+							</div>
+						</div>
+					</>
+				)}
 				key={parcel.ParcelID}
 			>
 				<section>
