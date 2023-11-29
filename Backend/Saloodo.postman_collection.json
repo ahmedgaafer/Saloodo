@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "911f3fb2-b905-4486-9b00-11386aa966da",
+		"_postman_id": "e9b47595-c69d-4a69-b478-8d1e28d398ce",
 		"name": "Saloodo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "9793284",
-		"_collection_link": "https://warped-meadow-806831.postman.co/workspace/PentaB~6f652268-c989-4c94-b33b-fb89fc372579/collection/9793284-911f3fb2-b905-4486-9b00-11386aa966da?action=share&source=collection_link&creator=9793284"
+		"_collection_link": "https://warped-meadow-806831.postman.co/workspace/PentaB~6f652268-c989-4c94-b33b-fb89fc372579/collection/9793284-e9b47595-c69d-4a69-b478-8d1e28d398ce?action=share&source=collection_link&creator=9793284"
 	},
 	"item": [
 		{
@@ -37,7 +37,75 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"sender1\",\r\n    \"password\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"86-lvuIOuYU0oOaKV8Q7MJIPSe8Dio\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Nov 2023 19:34:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"UserID\": 1,\n    \"Username\": \"sender1\",\n    \"Password\": \"123\",\n    \"Type\": \"sender\",\n    \"CreatedAt\": \"2023-11-29 09:08:24\",\n    \"UpdatedAt\": \"2023-11-29 09:08:24\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -69,7 +137,73 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Add new parcel",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ownerID\":2,\r\n    \"parcelInfo\":\"Gift\",\r\n    \"parcelFrom\": \"line 1\",\r\n    \"parcelTo\": \"line2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/parcels/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"parcels",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-6DTZ0KHOXFejB80ozYrFmRtqK2M\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Nov 2023 19:35:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"added\": true\n}"
+						}
+					]
 				},
 				{
 					"name": "Update parcel status",
@@ -78,7 +212,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"parcelID\": 1,\r\n    \"status\": \"Claimed by rider3\"\r\n}",
+							"raw": "{\r\n    \"parcelID\": 1,\r\n    \"status\": \"PICKED\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -96,7 +230,73 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update parcel status",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"parcelID\": 1,\r\n    \"status\": \"PICKED\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/parcels/status",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"parcels",
+										"status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f-2AoCFNi961w8FlSwiSMBxqsr0H4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Nov 2023 19:35:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"parcel\": true\n}"
+						}
+					]
 				},
 				{
 					"name": "Update rider",
@@ -123,7 +323,73 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update rider",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"parcelID\": 1,\r\n    \"riderID\": 15\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/parcels/rider",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"parcels",
+										"rider"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f-2AoCFNi961w8FlSwiSMBxqsr0H4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Nov 2023 19:35:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"parcel\": true\n}"
+						}
+					]
 				},
 				{
 					"name": "Get available parcels",
@@ -141,7 +407,64 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get available parcels",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/parcels/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"parcels",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "770"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"302-CeTPUHv/LCcdh2qXGKIK2AiaVzo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Nov 2023 19:35:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"parcels\": [\n        {\n            \"ParcelID\": 5,\n            \"OwnerID\": 1,\n            \"BikerID\": null,\n            \"ParcelInfo\": \"this is a new parcel\",\n            \"ParcelFrom\": \"a very long address\",\n            \"ParcelTo\": \"a very far place\",\n            \"ParcelStatus\": \"ASSIGNING RIDER\",\n            \"CreatedAt\": \"2023-11-29 14:46:37\",\n            \"UpdatedAt\": \"2023-11-29 14:46:37\",\n            \"PickedAt\": null,\n            \"DeliveredAt\": null\n        },\n        {\n            \"ParcelID\": 6,\n            \"OwnerID\": 2,\n            \"BikerID\": null,\n            \"ParcelInfo\": \"Gift\",\n            \"ParcelFrom\": \"line 1\",\n            \"ParcelTo\": \"line2\",\n            \"ParcelStatus\": \"ASSIGNING RIDER\",\n            \"CreatedAt\": \"2023-11-29 19:33:16\",\n            \"UpdatedAt\": \"2023-11-29 19:33:16\",\n            \"PickedAt\": null,\n            \"DeliveredAt\": null\n        },\n        {\n            \"ParcelID\": 7,\n            \"OwnerID\": 2,\n            \"BikerID\": null,\n            \"ParcelInfo\": \"Gift\",\n            \"ParcelFrom\": \"line 1\",\n            \"ParcelTo\": \"line2\",\n            \"ParcelStatus\": \"ASSIGNING RIDER\",\n            \"CreatedAt\": \"2023-11-29 19:35:04\",\n            \"UpdatedAt\": \"2023-11-29 19:35:04\",\n            \"PickedAt\": null,\n            \"DeliveredAt\": null\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "get user parcels",
@@ -166,7 +489,71 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "get user parcels",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/parcels/user/:userID",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"parcels",
+										"user",
+										":userID"
+									],
+									"variable": [
+										{
+											"key": "userID",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1009"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f1-mWbZMSzeQqWyzAccXraUG6ZjEfg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Nov 2023 19:35:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"parcels\": [\n        {\n            \"ParcelID\": 1,\n            \"OwnerID\": 2,\n            \"BikerID\": 15,\n            \"ParcelInfo\": \"Gift\",\n            \"ParcelFrom\": \"line 1\",\n            \"ParcelTo\": \"line2\",\n            \"ParcelStatus\": \"PICKED\",\n            \"CreatedAt\": \"2023-11-29 09:08:29\",\n            \"UpdatedAt\": \"2023-11-29 09:08:29\",\n            \"PickedAt\": \"2023-11-29 19:35:25\",\n            \"DeliveredAt\": \"2023-11-29 19:35:17\"\n        },\n        {\n            \"ParcelID\": 2,\n            \"OwnerID\": 2,\n            \"BikerID\": 11,\n            \"ParcelInfo\": \"aa\",\n            \"ParcelFrom\": \"bb\",\n            \"ParcelTo\": \"dd\",\n            \"ParcelStatus\": \"DELIVERED\",\n            \"CreatedAt\": \"2023-11-29 09:17:12\",\n            \"UpdatedAt\": \"2023-11-29 09:17:12\",\n            \"PickedAt\": \"2023-11-29 14:06:10\",\n            \"DeliveredAt\": \"2023-11-29 14:13:41\"\n        },\n        {\n            \"ParcelID\": 6,\n            \"OwnerID\": 2,\n            \"BikerID\": null,\n            \"ParcelInfo\": \"Gift\",\n            \"ParcelFrom\": \"line 1\",\n            \"ParcelTo\": \"line2\",\n            \"ParcelStatus\": \"ASSIGNING RIDER\",\n            \"CreatedAt\": \"2023-11-29 19:33:16\",\n            \"UpdatedAt\": \"2023-11-29 19:33:16\",\n            \"PickedAt\": null,\n            \"DeliveredAt\": null\n        },\n        {\n            \"ParcelID\": 7,\n            \"OwnerID\": 2,\n            \"BikerID\": null,\n            \"ParcelInfo\": \"Gift\",\n            \"ParcelFrom\": \"line 1\",\n            \"ParcelTo\": \"line2\",\n            \"ParcelStatus\": \"ASSIGNING RIDER\",\n            \"CreatedAt\": \"2023-11-29 19:35:04\",\n            \"UpdatedAt\": \"2023-11-29 19:35:04\",\n            \"PickedAt\": null,\n            \"DeliveredAt\": null\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "Get rider parcels",
@@ -191,7 +578,71 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get rider parcels",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/parcels/rider/:riderID",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"parcels",
+										"rider",
+										":riderID"
+									],
+									"variable": [
+										{
+											"key": "riderID",
+											"value": "15"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "275"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"113-UdragmZZtSLW969KgLuwqUSkHh4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Nov 2023 19:35:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"parcels\": [\n        {\n            \"ParcelID\": 1,\n            \"OwnerID\": 2,\n            \"BikerID\": 15,\n            \"ParcelInfo\": \"Gift\",\n            \"ParcelFrom\": \"line 1\",\n            \"ParcelTo\": \"line2\",\n            \"ParcelStatus\": \"PICKED\",\n            \"CreatedAt\": \"2023-11-29 09:08:29\",\n            \"UpdatedAt\": \"2023-11-29 09:08:29\",\n            \"PickedAt\": \"2023-11-29 19:35:25\",\n            \"DeliveredAt\": \"2023-11-29 19:35:17\"\n        }\n    ]\n}"
+						}
+					]
 				}
 			]
 		}
