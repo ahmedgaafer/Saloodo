@@ -87,7 +87,7 @@ module.exports.addRiderToParcel = function (parcelID, riderID) {
 
 					const stmt = db.prepare(`
                                 UPDATE Parcel
-                                SET BikerID = ?
+                                SET BikerID = ?, PickedAt = CURRENT_TIMESTAMP, ParcelStatus = 'PICKED'
                                 WHERE ParcelID = ?
                                 `);
 
@@ -112,7 +112,7 @@ module.exports.updateParcelStatus = function (parcelID, status) {
 		db.serialize(async () => {
 			const stmt = db.prepare(`
             UPDATE Parcel
-            SET ParcelStatus = ?
+            SET ParcelStatus = ?, DeliveredAt = CURRENT_TIMESTAMP
             WHERE ParcelID = ?
             `);
 

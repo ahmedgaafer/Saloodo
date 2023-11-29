@@ -9,7 +9,7 @@ import { Button } from "primereact/button";
 function StepsView({ parcel }) {
 	let step;
 	if (parcel.BikerID) {
-		step = parcel.ParcelStatus == "DONE" ? 2 : 1;
+		step = parcel.ParcelStatus == "DELIVERED" ? 2 : 1;
 	} else {
 		step = 0;
 	}
