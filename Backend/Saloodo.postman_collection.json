@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "911f3fb2-b905-4486-9b00-11386aa966da",
+		"name": "Saloodo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9793284",
+		"_collection_link": "https://warped-meadow-806831.postman.co/workspace/PentaB~6f652268-c989-4c94-b33b-fb89fc372579/collection/9793284-911f3fb2-b905-4486-9b00-11386aa966da?action=share&source=collection_link&creator=9793284"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"sender1\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/auth/login/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parcels",
+			"item": [
+				{
+					"name": "Add new parcel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ownerID\":2,\r\n    \"parcelInfo\":\"Gift\",\r\n    \"parcelFrom\": \"line 1\",\r\n    \"parcelTo\": \"line2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/parcels/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"parcels",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update parcel status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parcelID\": 1,\r\n    \"status\": \"Claimed by rider3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/parcels/status",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"parcels",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update rider",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parcelID\": 1,\r\n    \"riderID\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/parcels/rider",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"parcels",
+								"rider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get available parcels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/parcels/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"parcels",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user parcels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/parcels/user/:userID",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"parcels",
+								"user",
+								":userID"
+							],
+							"variable": [
+								{
+									"key": "userID",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get rider parcels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/parcels/rider/:riderID",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"parcels",
+								"rider",
+								":riderID"
+							],
+							"variable": [
+								{
+									"key": "riderID",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}

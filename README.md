@@ -31,3 +31,13 @@
    - Back-end: [http://localhost:3000](http://localhost:3000)
 
 Now you can enjoy using the Saloodo app locally!
+
+---
+
+For front and backend docs please follow these links:
+
+* [Frontend](Frontend/README.md)
+
+* [Backend](Backend/README.md)
+
+

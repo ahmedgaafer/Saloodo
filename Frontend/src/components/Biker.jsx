@@ -80,31 +80,41 @@ const ActiveParcels = (bikerParcels, setParcels, showToast) => {
 						<strong>Picked up at: </strong>
 						{parcel.PickedAt}
 					</div>
+					{parcel.DeliveredAt && (
+						<div>
+							<strong>Delivered at: </strong>
+							{parcel.DeliveredAt}
+						</div>
+					)}
 				</section>
-				<Button
-					label="Deliver"
-					onClick={() => {
-						deliverPackage(parcel.ParcelID).then((res) => {
-							if (res.status === 200) {
-								showToast("success", "Parcel delivered");
-								setParcels((prev) => {
-									//change parcel status to dilivered
-									return prev.map((p) => {
-										if (p.ParcelID === parcel.ParcelID) {
-											return {
-												...p,
-												ParcelStatus: "DELIVERED",
-											};
-										}
-										return p;
+				{parcel.ParcelStatus !== "DELIVERED" && (
+					<Button
+						label="Deliver"
+						onClick={() => {
+							deliverPackage(parcel.ParcelID).then((res) => {
+								if (res.status === 200) {
+									showToast("success", "Parcel delivered");
+									setParcels((prev) => {
+										//change parcel status to dilivered
+										return prev.map((p) => {
+											if (
+												p.ParcelID === parcel.ParcelID
+											) {
+												return {
+													...p,
+													ParcelStatus: "DELIVERED",
+												};
+											}
+											return p;
+										});
 									});
-								});
-							} else {
-								showToast("error", res.data.message);
-							}
-						});
-					}}
-				/>
+								} else {
+									showToast("error", res.data.message);
+								}
+							});
+						}}
+					/>
+				)}
 			</AccordionTab>
 		);
 	});

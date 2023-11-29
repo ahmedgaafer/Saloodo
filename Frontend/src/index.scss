@@ -22,7 +22,7 @@ html,
 body {
 	display: flex;
 	place-items: flex-start;
-	padding-top: 10vh;
+	padding-top: max(10vh, 100px);
 	min-width: 320px;
 	min-height: 100vh;
 
@@ -55,7 +55,7 @@ body {
 
 		.nav-left {
 			.p-button {
-				margin: 1vh;
+				margin: 0.5vh;
 			}
 		}
 		.p-toolbar {
@@ -93,5 +93,13 @@ body {
 			background-color: $text;
 			color: $invert-text;
 		}
+	}
+
+	.p-tabview-nav-content {
+		border-bottom: 1px solid;
+	}
+	.p-tabview-selected > * {
+		color: $text;
+		border: 1px solid;
 	}
 }

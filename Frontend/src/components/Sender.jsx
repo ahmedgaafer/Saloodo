@@ -76,15 +76,20 @@ function Sender({ user, showToast }) {
 	const [parcelInfo, setParcelInfo] = useState("");
 	const [pickup, setPickup] = useState("");
 	const [delivery, setDelivery] = useState("");
+	const [activeIndex, setActiveIndex] = useState(0);
 
-	useEffect(() => {
-		// Do something
+	const getParcels = () => {
 		getUserParcels(user.UserID).then((res) => {
 			if (res.status === 200) {
-				console.log(res.data.parcels);
 				setCurrentParcels(res.data.parcels);
 			}
 		});
+	};
+
+	useEffect(() => {
+		// Do something
+
+		getParcels();
 	}, []);
 
 	const addParcel = () => {
@@ -120,7 +125,13 @@ function Sender({ user, showToast }) {
 
 	return (
 		<div className="card">
-			<TabView>
+			<TabView
+				activeIndex={activeIndex}
+				onTabChange={(e) => {
+					setActiveIndex(e.index);
+					e.index === 1 && getParcels();
+				}}
+			>
 				<TabPanel header="Add a new parcel">
 					<label
 						htmlFor="ParcelInfo"
